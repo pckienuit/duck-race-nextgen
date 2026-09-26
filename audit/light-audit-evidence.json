@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-26 23:46:21",
+  "timestamp": "2026-09-26 23:59:36",
   "target_url": "http://127.0.0.1:8788/index.html",
   "is_baseline_mode": false,
   "summary": {
@@ -16,7 +16,7 @@
       "status": "PASS",
       "is_redesign_assertion": false,
       "details": {
-        "total_requests": 2,
+        "total_requests": 1,
         "external_requests": []
       }
     },
@@ -319,8 +319,8 @@
       "status": "PASS",
       "is_redesign_assertion": false,
       "details": {
-        "winner": "Vịt Vàng",
-        "rank2": "Vịt Xanh",
+        "winner": "Vịt Xanh",
+        "rank2": "Vịt Vàng",
         "rank3_hidden": true,
         "rows": 2
       }
