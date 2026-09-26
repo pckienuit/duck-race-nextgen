@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mockup Thiết Kế: Đua Vịt - Giao Diện &amp; Trạng Thái Cuộc Đua</title>
+  <style>
+    :root {
+      --bg: #F7FAF5;
+      --card: #FFFFFF;
+      --card-border: #E2E8DC;
+      --card-hover: #F2F7ED;
+      --text: #24332B;
+      --text-muted: #53645A;
+      --primary: #58CC02;
+      --primary-hover: #4EBE00;
+      --primary-active: #46A302;
+      --primary-shadow: #3B8702;
+      --secondary: #E5EADF;
+      --secondary-hover: #D8DFD1;
+      --secondary-shadow: #BFC8B6;
+      --water-bg: #DFF3FA;
+      --water-border: #C8E5F0;
+      --danger: #FF4757;
+      --danger-shadow: #D63031;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-family);
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px;
+      line-height: 1.5;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
+    header { background: #fff; padding: 24px; border-radius: 18px; border: 1px solid var(--card-border); }
+    h1 { font-size: 1.6rem; font-weight: 800; display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .subtitle { color: var(--text-muted); font-size: 0.95rem; }
+
+    .state-section {
+      background: #fff;
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(36,51,43,0.06);
+    }
+
+    .state-section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mockup-frame {
+      border: 2px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      height: 480px;
+      background: var(--bg);
+    }
+
+    .mock-sidebar {
+      width: 280px;
+      background: #fff;
+      border-right: 1px solid var(--card-border);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mock-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: #FFD000;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 3px 0 #E69D00;
+    }
+
+    .mock-brand-title {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .mock-btn {
+      height: 44px;
+      min-height: 44px;
+      border-radius: 12px;
+      border: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 16px;
+      transform: translateY(0);
+      transition: all 0.1s ease;
+    }
+
+    .btn-green {
+      background: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 0 var(--primary-shadow);
+    }
+    .btn-green:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--primary-shadow);
+    }
+
+    .btn-gray {
+      background: var(--secondary);
+      color: var(--text);
+      box-shadow: 0 3px 0 var(--secondary-shadow);
+    }
+
+    .mock-stage {
+      flex: 1;
+      background: var(--water-bg);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mock-topbar {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 5;
+    }
+
+    .mock-pill {
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(36,51,43,0.06);
+    }
+
+    .mock-canvas-sim {
+      flex: 1;
+      position: relative;
+    }
+
+    .mock-lane {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 48px;
+      border-bottom: 1px dashed rgba(60, 120, 150, 0.2);
+      display: flex;
+      align-items: center;
+      padding-left: 60px;
+    }
+
+    .mock-duck-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mock-nametag {
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 3px 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: 0 2px 4px rgba(36,51,43,0.08);
+      white-space: nowrap;
+    }
+
+    /* Modal Mockup */
+    .mock-modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(36, 51, 43, 0.4);
+      backdrop-filter: blur(2px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+    }
+
+    .mock-modal-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      width: 440px;
+      padding: 24px;
+      box-shadow: 0 12px 32px rgba(36,51,43,0.18);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .winner-highlight {
+      background: #FFF9E6;
+      border: 2px solid #FFEAA7;
+      border-radius: 14px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .winner-name-txt {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #24332B;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🦆 Mockup Hệ Thống: Đua Vịt (Light Mode)</h1>
+      <p class="subtitle">Bố cục Monitor (Theo dõi đua) / Operate (Quản lý thí sinh) đạt chuẩn WCAG AA, nút bấm có chiều sâu Duolingo không gây layout-shift.</p>
+    </header>
+
+    <!-- STATE 1: RACING -->
+    <section class="state-section">
+      <h2>1. Trạng Thái Đang Đua (Racing State on Light River)</h2>
+      <div class="mockup-frame">
+        <aside class="mock-sidebar">
+          <div class="mock-brand">
+            <div class="brand-logo">🦆</div>
+            <div>
+              <div class="mock-brand-title">ĐUA VỊT</div>
+              <div style="font-size:0.75rem; color:var(--text-muted)">Cuộc đua vui nhộn</div>
+            </div>
+          </div>
+          <div style="font-size: 0.82rem; font-weight:700;">Thí sinh (4)</div>
+          <div style="flex:1; background:#F7FAF5; border:1px solid var(--card-border); border-radius:10px; padding:8px; font-size:0.8rem; color:var(--text-muted);">
+            An<br>Bình<br>Chiến<br>Dũng
+          </div>
+          <button class="mock-btn btn-gray" disabled>Tạm dừng</button>
+          <button class="mock-btn btn-gray">Đua lại</button>
+        </aside>
+
+        <main class="mock-stage">
+          <div class="mock-topbar">
+            <div class="mock-pill" style="color:var(--text-muted)">◀ Thu gọn bảng điều khiển</div>
+            <div class="mock-pill" style="font-weight:800; color:var(--text);">⏱ 00:04.2</div>
+            <div class="mock-pill" style="background:#E5F6D3; color:#2F7300;">⚡ Đang tranh tài...</div>
+          </div>
+          <div class="mock-canvas-sim">
+            <div class="mock-lane" style="top: 30px;">
+              <div class="mock-duck-item" style="transform: translateX(180px);">
+                <div class="brand-logo" style="width:32px; height:32px; font-size:1.1rem;">🦆</div>
+                <span class="mock-nametag">An</span>
+              </div>
+            </div>
+            <div class="mock-lane" style="top: 90px;">
+              <div class="mock-duck-item" style="transform: translateX(240px);">
+                <div class="brand-logo" style="width:32px; height:32px; font-size:1.1rem; background:#58D68D; box-shadow:0 3px 0 #27AE60;">🦆</div>
+                <span class="mock-nametag">Bình</span>
+              </div>
+            </div>
+            <div class="mock-lane" style="top: 150px;">
+              <div class="mock-duck-item" style="transform: translateX(140px);">
+                <div class="brand-logo" style="width:32px; height:32px; font-size:1.1rem; background:#FF7675; box-shadow:0 3px 0 #E84393;">🦆</div>
+                <span class="mock-nametag">Chiến</span>
+              </div>
+            </div>
+            <div class="mock-lane" style="top: 210px;">
+              <div class="mock-duck-item" style="transform: translateX(210px);">
+                <div class="brand-logo" style="width:32px; height:32px; font-size:1.1rem; background:#74B9FF; box-shadow:0 3px 0 #0984E3;">🦆</div>
+                <span class="mock-nametag">Dũng</span>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <!-- STATE 2: FINISHED & RESULTS DIALOG -->
+    <section class="state-section">
+      <h2>2. Bảng Vinh Danh &amp; Kết Quả Toàn Cuộc (Results Modal)</h2>
+      <div class="mockup-frame" style="position:relative;">
+        <div class="mock-modal-overlay">
+          <div class="mock-modal-card">
+            <h3 style="font-size:1.2rem; font-weight:800;">🏆 Kết Quả Cuộc Đua</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted)">4/4 tay đua đã hoàn thành đường đua</p>
+            <div class="winner-highlight">
+              <span style="font-size:0.75rem; font-weight:800; color:#B7791F;">QUÁN QUÂN CUỘC ĐUA</span>
+              <span class="winner-name-txt">Bình</span>
+              <span style="font-size:0.8rem; color:#4A5568;">4.812 giây</span>
+            </div>
+            <table style="width:100%; border-collapse:collapse; font-size:0.85rem; text-align:left;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--card-border); color:var(--text-muted);">
+                  <th style="padding:6px;">Hạng</th>
+                  <th style="padding:6px;">Thí sinh</th>
+                  <th style="padding:6px;">Thời gian</th>
+                  <th style="padding:6px;">Cách biệt</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #EDF2F7; font-weight:700;">
+                  <td style="padding:6px;">1</td><td>Bình</td><td>4.812 s</td><td>Dẫn đầu</td>
+                </tr>
+                <tr style="border-bottom:1px solid #EDF2F7;">
+                  <td style="padding:6px;">2</td><td>Dũng</td><td>4.950 s</td><td>+0.138 s</td>
+                </tr>
+                <tr style="border-bottom:1px solid #EDF2F7;">
+                  <td style="padding:6px;">3</td><td>An</td><td>5.120 s</td><td>+0.308 s</td>
+                </tr>
+                <tr>
+                  <td style="padding:6px;">4</td><td>Chiến</td><td>5.340 s</td><td>+0.528 s</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <button class="mock-btn btn-green">Đua vòng mới</button>
+              <button class="mock-btn" style="background:#FFF0F0; color:#FF4757; border:1px solid #FFD1D1;">Loại quán quân và chuẩn bị vòng sau</button>
+              <button class="mock-btn btn-gray">Đóng bảng kết quả</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

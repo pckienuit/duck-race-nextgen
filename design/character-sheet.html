@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bản vẽ Nhân vật &amp; Hệ thống Linh vật Vịt (Character Sheet)</title>
+  <style>
+    :root {
+      --bg: #F7FAF5;
+      --card: #FFFFFF;
+      --card-border: #E5EADF;
+      --text: #24332B;
+      --text-muted: #53645A;
+      --primary: #58CC02;
+      --primary-dark: #46A302;
+      --accent-orange: #FF7A00;
+      --accent-yellow: #FFD000;
+      --shadow-color: rgba(36, 51, 43, 0.08);
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 32px 20px;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    header {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 4px 16px var(--shadow-color);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 4px 14px var(--shadow-color);
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #EDF3E8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .duck-preview-box {
+      background: #F1F8EB;
+      border: 1px solid #DFEAD7;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .duck-preview-box canvas {
+      background: #DFF3FA;
+      border-radius: 12px;
+      border: 1px solid #CCE5EE;
+    }
+
+    .caption {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .sub-caption {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      background: #E5F6D3;
+      color: #2F7300;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .scale-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background: #DFF3FA;
+      padding: 24px;
+      border-radius: 14px;
+      border: 1px solid #CCE5EE;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .scale-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .specs-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+    }
+
+    .specs-list li {
+      padding: 10px 14px;
+      background: #F7FAF5;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+    }
+
+    .specs-list li strong {
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>🦆 Bản vẽ Linh vật Vịt Nguyên bản (Original Mascot System)</h1>
+      <p class="subtitle">Đặc tả hình học vector dùng chung cho Canvas cuộc đua, Avatar HUD, Podium vinh danh &amp; Bảng xếp hạng. Thân thiện, bo tròn, mắt biểu cảm và mỏ dẹt đặc trưng.</p>
+    </header>
+
+    <!-- SECTION 1: ANATOMY & GEOMETRY -->
+    <section class="section-card">
+      <h2>1. Cấu trúc Giải phẫu &amp; Tỉ lệ Hình học (Anatomy)</h2>
+      <ul class="specs-list">
+        <li><strong>Thân quả lê/giọt nước:</strong> Thân mập mạp, đáy tròn vững chãi trên mặt nước, tạo cảm giác lướt sóng nhẹ nhàng.</li>
+        <li><strong>Mỏ dẹt rộng màu cam:</strong> Khối elip cong hai đầu, dẹt ngang rõ rệt để lập tức nhận diện là vịt (không bị nhầm sang cú hoặc chim săn mồi).</li>
+        <li><strong>Mắt to biểu cảm:</strong> Mắt tròn lớn lòng trắng, đồng tử đen có điểm phản quang trắng (catchlight) và lông mày uốn linh hoạt theo trạng thái.</li>
+        <li><strong>Cánh giọt nước:</strong> Cánh vỗ mềm mại sát thân, tạo nhịp đập sinh động khi bơi và vẫy chào khi về đích.</li>
+        <li><strong>Góc nhìn 3/4 hướng phải:</strong> Thấy rõ biểu cảm khuôn mặt nhưng vẫn thể hiện hướng tiến lên phía trước của cuộc đua.</li>
+        <li><strong>Màu phẳng &amp; Bóng đổ 1 lớp:</strong> Không hiệu ứng 3D phức tạp, không viền neon chói; tối ưu hiển thị rõ ở mọi kích thước từ 20px đến 120px.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 2: POSES & EMOTIONS -->
+    <section class="section-card">
+      <h2>2. Biểu cảm &amp; Các Tư thế (Poses &amp; States)</h2>
+      <div class="grid-4">
+        <div class="duck-preview-box">
+          <canvas id="pose-ready" width="100" height="80"></canvas>
+          <span class="caption">Sẵn sàng (Ready)</span>
+          <span class="sub-caption">Mắt to, nhún nhẹ, cười tươi chờ lệnh xuất phát</span>
+        </div>
+        <div class="duck-preview-box">
+          <canvas id="pose-swim" width="100" height="80"></canvas>
+          <span class="caption">Đang đua (Swimming)</span>
+          <span class="sub-caption">Thân nghiêng nhẹ 3/4, cánh quạt nước nhịp nhàng</span>
+        </div>
+        <div class="duck-preview-box">
+          <canvas id="pose-boost" width="100" height="80"></canvas>
+          <span class="caption">Tăng tốc (Boost / Nitro)</span>
+          <span class="sub-caption">Mắt tập trung cao độ, vệt nước cuộn trào</span>
+        </div>
+        <div class="duck-preview-box">
+          <canvas id="pose-finish" width="100" height="80"></canvas>
+          <span class="caption">Về đích (Finish / Winner)</span>
+          <span class="sub-caption">Mắt híp vui sướng (^ ^), cánh giơ cao ăn mừng</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SKINS & ACCESSORIES -->
+    <section class="section-card">
+      <h2>3. Bảng Màu Thân thiện &amp; Phụ kiện Độc bản</h2>
+      <div class="grid-4" id="skins-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- SECTION 4: SCALE VERIFICATION -->
+    <section class="section-card">
+      <h2>4. Kiểm thử Khả năng Đọc ở Mọi Kích thước (Readability Test)</h2>
+      <div class="scale-row">
+        <div class="scale-item">
+          <canvas id="scale-16" width="24" height="24"></canvas>
+          <span class="sub-caption">24px (Micro HUD)</span>
+        </div>
+        <div class="scale-item">
+          <canvas id="scale-32" width="36" height="36"></canvas>
+          <span class="sub-caption">36px (Lane standard)</span>
+        </div>
+        <div class="scale-item">
+          <canvas id="scale-48" width="56" height="56"></canvas>
+          <span class="sub-caption">56px (Leaderboard)</span>
+        </div>
+        <div class="scale-item">
+          <canvas id="scale-96" width="100" height="100"></canvas>
+          <span class="sub-caption">100px (Winner Podium)</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Shared geometry duck renderer function
+    function renderDuckAvatar(ctx, x, y, scale = 1, options = {}) {
+      const {
+        skin = { body: '#FFD000', shadow: '#E69D00', beak: '#FF7A00', beakShadow: '#D35400' },
+        accessory = 'none',
+        pose = 'swim', // 'ready', 'swim', 'boost', 'finish', 'paused'
+        wobble = 0,
+        flip = false
+      } = options;
+
+      ctx.save();
+      ctx.translate(x, y);
+      if (flip) ctx.scale(-1, 1);
+      ctx.scale(scale, scale);
+
+      // Water Ripple / Shadow underneath
+      ctx.fillStyle = 'rgba(36, 85, 110, 0.16)';
+      ctx.beginPath();
+      ctx.ellipse(0, 16, 22, 6, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Duck Body (Chunky Pear Silhouette)
+      ctx.fillStyle = skin.body;
+      ctx.beginPath();
+      // Base pear body
+      ctx.moveTo(-16, 8);
+      ctx.bezierCurveTo(-22, 0, -18, -10, -6, -8);
+      ctx.bezierCurveTo(4, -8, 14, -2, 16, 6);
+      ctx.bezierCurveTo(18, 14, 2, 18, -6, 17);
+      ctx.bezierCurveTo(-14, 16, -18, 13, -16, 8);
+      ctx.closePath();
+      ctx.fill();
+
+      // Body bottom shadow / contour
+      ctx.fillStyle = skin.shadow;
+      ctx.beginPath();
+      ctx.ellipse(-3, 11, 15, 6, 0.05, 0, Math.PI);
+      ctx.fill();
+
+      // Wing (Droplet with gentle flap)
+      let wingAngle = 0;
+      if (pose === 'swim') wingAngle = Math.sin(wobble * 2) * 0.15;
+      else if (pose === 'boost') wingAngle = -0.3;
+      else if (pose === 'finish') wingAngle = 0.45;
+
+      ctx.save();
+      ctx.translate(-5, 4);
+      ctx.rotate(wingAngle);
+      ctx.fillStyle = skin.shadow;
+      ctx.beginPath();
+      ctx.moveTo(-10, -3);
+      ctx.quadraticCurveTo(-15, 5, -8, 9);
+      ctx.quadraticCurveTo(2, 8, 5, 0);
+      ctx.quadraticCurveTo(0, -6, -10, -3);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+
+      // Head (Rounded, cheerful, sits proud)
+      ctx.fillStyle = skin.body;
+      ctx.beginPath();
+      ctx.arc(10, -7, 12, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Cheek blush
+      ctx.fillStyle = 'rgba(255, 100, 100, 0.22)';
+      ctx.beginPath();
+      ctx.arc(8, -2, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Broad Flat Orange Beak (Authentic duck beak)
+      ctx.fillStyle = skin.beak;
+      ctx.beginPath();
+      ctx.moveTo(16, -5);
+      ctx.bezierCurveTo(22, -6, 26, -4, 27, -1);
+      ctx.bezierCurveTo(28, 2, 23, 4, 15, 2);
+      ctx.closePath();
+      ctx.fill();
+
+      // Beak lower lip / smile separation
+      ctx.fillStyle = skin.beakShadow || '#D35400';
+      ctx.beginPath();
+      ctx.moveTo(17, -1);
+      ctx.quadraticCurveTo(24, 0, 26, 0);
+      ctx.stroke();
+
+      // Eyes based on pose
+      if (pose === 'finish') {
+        // Joyful crescent eyes (^ ^)
+        ctx.strokeStyle = '#24332B';
+        ctx.lineWidth = 2.2;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.arc(12, -9, 4, Math.PI * 1.15, Math.PI * 1.85);
+        ctx.stroke();
+      } else {
+        // Expressive large white eye with pupil and catchlight
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath();
+        ctx.ellipse(12, -8, 4.5, 5.5, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#E0E7DC';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+
+        // Dark pupil
+        ctx.fillStyle = '#24332B';
+        ctx.beginPath();
+        const lookX = pose === 'boost' ? 14 : 13;
+        ctx.arc(lookX, -8, 2.6, 0, Math.PI * 2);
+        ctx.fill();
+
+        // White sparkle / catchlight
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath();
+        ctx.arc(lookX + 0.9, -9.2, 1.1, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Eyebrow
+        ctx.strokeStyle = '#24332B';
+        ctx.lineWidth = 1.4;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        if (pose === 'boost') {
+          ctx.moveTo(9, -15);
+          ctx.lineTo(15, -13);
+        } else {
+          ctx.moveTo(8, -14);
+          ctx.quadraticCurveTo(12, -16, 16, -14);
+        }
+        ctx.stroke();
+      }
+
+      // Accessories
+      drawAccessory(ctx, accessory, pose);
+
+      ctx.restore();
+    }
+
+    function drawAccessory(ctx, type, pose) {
+      if (!type || type === 'none') return;
+      ctx.save();
+      if (type === 'headband') {
+        // Athletic headband
+        ctx.fillStyle = '#FF4757';
+        ctx.beginPath();
+        ctx.rect(3, -15, 13, 3.5);
+        ctx.fill();
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(7, -15, 5, 3.5);
+      } else if (type === 'crown') {
+        // Golden mini crown
+        ctx.fillStyle = '#FFA502';
+        ctx.beginPath();
+        ctx.moveTo(4, -18);
+        ctx.lineTo(6, -24);
+        ctx.lineTo(10, -20);
+        ctx.lineTo(14, -24);
+        ctx.lineTo(16, -18);
+        ctx.closePath();
+        ctx.fill();
+        ctx.fillStyle = '#FFEAA7';
+        ctx.fillRect(4, -18, 12, 2.5);
+      } else if (type === 'cap') {
+        // Sporty baseball cap
+        ctx.fillStyle = '#2ED573';
+        ctx.beginPath();
+        ctx.arc(10, -14, 8, Math.PI, 0);
+        ctx.fill();
+        ctx.fillStyle = '#1E90FF';
+        ctx.fillRect(12, -14, 9, 2.5);
+      } else if (type === 'sunglasses') {
+        // Cool sunglasses
+        ctx.fillStyle = '#2F3542';
+        ctx.beginPath();
+        ctx.roundRect(8, -11, 10, 5, 2);
+        ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,0.4)';
+        ctx.fillRect(10, -10, 2, 3);
+      } else if (type === 'headphones') {
+        // Audio headphones
+        ctx.strokeStyle = '#57606F';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.arc(10, -7, 10.5, Math.PI * 0.9, Math.PI * 0.1, false);
+        ctx.stroke();
+        ctx.fillStyle = '#FF6B81';
+        ctx.fillRect(1, -9, 4, 7);
+        ctx.fillRect(15, -9, 4, 7);
+      } else if (type === 'bowtie') {
+        // Tiny cute bowtie
+        ctx.fillStyle = '#FF4757';
+        ctx.beginPath();
+        ctx.moveTo(11, 4);
+        ctx.lineTo(8, 2);
+        ctx.lineTo(8, 6);
+        ctx.closePath();
+        ctx.moveTo(11, 4);
+        ctx.lineTo(14, 2);
+        ctx.lineTo(14, 6);
+        ctx.closePath();
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+
+    // Render Poses
+    renderDuckAvatar(document.getElementById('pose-ready').getContext('2d'), 50, 40, 1.3, { pose: 'ready' });
+    renderDuckAvatar(document.getElementById('pose-swim').getContext('2d'), 50, 40, 1.3, { pose: 'swim', wobble: 1 });
+    renderDuckAvatar(document.getElementById('pose-boost').getContext('2d'), 50, 40, 1.3, { pose: 'boost', accessory: 'headband' });
+    renderDuckAvatar(document.getElementById('pose-finish').getContext('2d'), 50, 40, 1.3, { pose: 'finish', accessory: 'crown' });
+
+    // Render Skins & Accessories Grid
+    const SKINS = [
+      { name: 'Vàng Cổ Điển', body: '#FFD000', shadow: '#E69D00', beak: '#FF7A00', acc: 'none' },
+      { name: 'Bạc Hà Năng Động', body: '#58D68D', shadow: '#27AE60', beak: '#FF7A00', acc: 'cap' },
+      { name: 'San Hô Duyên Dáng', body: '#FF7675', shadow: '#E84393', beak: '#FFB142', acc: 'bowtie' },
+      { name: 'Xanh Trời Mát Mẻ', body: '#74B9FF', shadow: '#0984E3', beak: '#FF7A00', acc: 'sunglasses' },
+      { name: 'Tím Lavender', body: '#A29BFE', shadow: '#6C5CE7', beak: '#FFA502', acc: 'headphones' },
+      { name: 'Cam Hoàng Hôn', body: '#FFA07A', shadow: '#E17055', beak: '#FF7A00', acc: 'headband' },
+      { name: 'Bạch Tuyết', body: '#F5F6FA', shadow: '#DFE4EA', beak: '#FF7A00', acc: 'crown' },
+      { name: 'Xám Khói Trầm', body: '#718093', shadow: '#2F3640', beak: '#FFB142', acc: 'sunglasses' }
+    ];
+
+    const skinsGrid = document.getElementById('skins-grid');
+    SKINS.forEach((s, idx) => {
+      const box = document.createElement('div');
+      box.className = 'duck-preview-box';
+      const canvas = document.createElement('canvas');
+      canvas.width = 90;
+      canvas.height = 70;
+      const ctx = canvas.getContext('2d');
+      renderDuckAvatar(ctx, 45, 36, 1.15, {
+        skin: s,
+        accessory: s.acc,
+        pose: 'swim',
+        wobble: idx
+      });
+      box.appendChild(canvas);
+
+      const cap = document.createElement('span');
+      cap.className = 'caption';
+      cap.textContent = s.name;
+      box.appendChild(cap);
+
+      const badge = document.createElement('span');
+      badge.className = 'badge';
+      badge.textContent = `Phụ kiện: ${s.acc}`;
+      box.appendChild(badge);
+
+      skinsGrid.appendChild(box);
+    });
+
+    // Render Scale Variations
+    [
+      { id: 'scale-16', w: 24, h: 24, scale: 0.42, x: 12, y: 12 },
+      { id: 'scale-32', w: 36, h: 36, scale: 0.65, x: 18, y: 19 },
+      { id: 'scale-48', w: 56, h: 56, scale: 1.0, x: 28, y: 28 },
+      { id: 'scale-96', w: 100, h: 100, scale: 1.7, x: 50, y: 50 }
+    ].forEach(cfg => {
+      const cvs = document.getElementById(cfg.id);
+      const ctx = cvs.getContext('2d');
+      renderDuckAvatar(ctx, cfg.x, cfg.y, cfg.scale, {
+        skin: SKINS[0],
+        accessory: 'crown',
+        pose: 'finish'
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Default simulation RNG does not call FX Math.random",
+    "pass": true
+  },
+  {
+    "name": "Cosmetic wobble does not consume simulation RNG",
+    "pass": true
+  },
+  {
+    "name": "Results contain shared mascot avatars",
+    "pass": true
+  },
+  {
+    "name": "Resize does not unlock background behind result dialog",
+    "pass": true
+  },
+  {
+    "name": "Sub-nanosecond crossings preserve actual order",
+    "pass": true
+  },
+  {
+    "name": "Single view height and duck overlap on crowded roster",
+    "pass": true
+  },
+  {
+    "name": "Reduced motion removes cosmetic bob and spin",
+    "pass": true
+  }
+]
