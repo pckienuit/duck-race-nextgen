@@ -1,0 +1,320 @@
+{
+  "initial": {
+    "title": "🦆 DUCK RACE NEXT-GEN | Đua Vịt Siêu Kịch Tính",
+    "ducks": 8,
+    "state": "idle"
+  },
+  "start_twice": {
+    "before": {
+      "t": 1,
+      "p": 0.02080806789383543
+    },
+    "after": {
+      "t": 1,
+      "p": 0.02080806789383543,
+      "state": "racing"
+    },
+    "disabled": true
+  },
+  "restart_finished": {
+    "state": "racing",
+    "finishedCount": 0,
+    "allAlreadyFinished": false
+  },
+  "edit_mid_race": {
+    "state": "racing",
+    "time": 1,
+    "count": 8
+  },
+  "duplicate_elimination": {
+    "remaining": [
+      "An",
+      "Bình"
+    ],
+    "state": "idle"
+  },
+  "same_frame_order": [
+    {
+      "name": "B",
+      "time": 0.010000000000000113,
+      "rank": 1
+    },
+    {
+      "name": "A",
+      "time": 0.09000000000000101,
+      "rank": 2
+    }
+  ],
+  "grace_period_top3": {
+    "state": "racing",
+    "finished": [
+      "A"
+    ],
+    "progress": [
+      1,
+      0.2666666666666663,
+      0.1666666666666671
+    ]
+  },
+  "stale_result_timer": {
+    "state": "idle",
+    "modalActive": false,
+    "winner": "PHAN CHÍ KIÊN"
+  },
+  "name_xss": {
+    "executed": 0,
+    "imgInLeaderboard": false
+  },
+  "hidden_modal_focus": {
+    "active": "",
+    "modalOpacity": "0",
+    "role": "dialog",
+    "ariaModal": "true"
+  },
+  "empty_start": {
+    "startDisabled": true,
+    "emptyText": "",
+    "namesLabel": 1,
+    "durationLabel": 1
+  },
+  "reload_persistence": {
+    "names": [
+      "Tên thử lưu",
+      "Tên thứ hai"
+    ],
+    "duration": 25
+  },
+  "layout_1440": {
+    "viewport": 1440,
+    "scrollWidth": 1440,
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 900,
+      "right": 320
+    },
+    "stage": {
+      "x": 320,
+      "y": 0,
+      "w": 1120,
+      "h": 900,
+      "right": 1440
+    },
+    "timer": {
+      "x": 887.046875,
+      "y": 14,
+      "w": 105.59375,
+      "h": 33,
+      "right": 992.640625
+    },
+    "fullscreen": {
+      "x": 429.8125,
+      "y": 15,
+      "w": 118.25,
+      "h": 31,
+      "right": 548.0625
+    },
+    "start": {
+      "x": 16,
+      "y": 800,
+      "w": 287,
+      "h": 41,
+      "right": 303
+    },
+    "trackWidth": 960
+  },
+  "layout_768": {
+    "viewport": 768,
+    "scrollWidth": 768,
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 1024,
+      "right": 320
+    },
+    "stage": {
+      "x": 320,
+      "y": 0,
+      "w": 448,
+      "h": 1024,
+      "right": 768
+    },
+    "timer": {
+      "x": 551.046875,
+      "y": 14,
+      "w": 105.59375,
+      "h": 33,
+      "right": 656.640625
+    },
+    "fullscreen": {
+      "x": 429.8125,
+      "y": 15,
+      "w": 118.25,
+      "h": 31,
+      "right": 548.0625
+    },
+    "start": {
+      "x": 16,
+      "y": 924,
+      "w": 287,
+      "h": 41,
+      "right": 303
+    },
+    "trackWidth": 288
+  },
+  "layout_390": {
+    "viewport": 390,
+    "scrollWidth": 390,
+    "sidebar": {
+      "x": 0,
+      "y": 844,
+      "w": 390,
+      "h": 633,
+      "right": 390
+    },
+    "stage": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "right": 390
+    },
+    "timer": {
+      "x": 191.828125,
+      "y": 22.5,
+      "w": 105.59375,
+      "h": 33,
+      "right": 297.421875
+    },
+    "fullscreen": {
+      "x": 95.5625,
+      "y": 16,
+      "w": 96.265625,
+      "h": 46,
+      "right": 191.828125
+    },
+    "start": {
+      "x": 16,
+      "y": 1377,
+      "w": 358,
+      "h": 41,
+      "right": 374
+    },
+    "trackWidth": 230
+  },
+  "layout_320": {
+    "viewport": 320,
+    "scrollWidth": 320,
+    "sidebar": {
+      "x": 0,
+      "y": 568,
+      "w": 320,
+      "h": 426,
+      "right": 320
+    },
+    "stage": {
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 568,
+      "right": 320
+    },
+    "timer": {
+      "x": 143.0625,
+      "y": 31,
+      "w": 105.59375,
+      "h": 33,
+      "right": 248.65625
+    },
+    "fullscreen": {
+      "x": 86.5,
+      "y": 17,
+      "w": 56.5625,
+      "h": 61,
+      "right": 143.0625
+    },
+    "start": {
+      "x": 16,
+      "y": 1101,
+      "w": 273,
+      "h": 41,
+      "right": 289
+    },
+    "trackWidth": 160
+  },
+  "large_roster": {
+    "spacing16": 45.294117647058826,
+    "spacing100": 7.623762376237622,
+    "nameTagHeight": 18,
+    "duckBodyHeight": 24
+  },
+  "duration_and_fps": [
+    {
+      "fps": 30,
+      "firstMean": 7.7716666666666505,
+      "doneMean": 9.008333333333306,
+      "minFinished": 3
+    },
+    {
+      "fps": 60,
+      "firstMean": 7.8473333333333155,
+      "doneMean": 8.979333333333344,
+      "minFinished": 3
+    },
+    {
+      "fps": 120,
+      "firstMean": 7.830666666666843,
+      "doneMean": 8.973333333333457,
+      "minFinished": 3
+    }
+  ],
+  "duration_change_mid_race": {
+    "state": "racing",
+    "effectiveDuration": 10,
+    "disabled": true
+  },
+  "keyboard_button_space": {
+    "focused": "btn-shuffle",
+    "state": "idle"
+  },
+  "paused_effects": {
+    "before": {
+      "water": 0,
+      "life": 1,
+      "time": 0
+    },
+    "after": {
+      "water": 0,
+      "life": 0.8384231896022162,
+      "time": 0
+    }
+  },
+  "slowmo_real_vs_simulated": {
+    "configuredSeconds": 10,
+    "renderedSeconds": 12.233333333333333,
+    "timerSeconds": 10.000666666628442,
+    "slowmo": true
+  },
+  "hud_overlap": {
+    "finishX": 1370,
+    "hud": {
+      "left": 336,
+      "right": 536,
+      "top": 68,
+      "bottom": 197
+    },
+    "occludedLanes": []
+  },
+  "live_raf_race": {
+    "state": "finished",
+    "time": 4.516399999999998,
+    "finished": 6,
+    "winner": "C",
+    "rank2": "B",
+    "rank3": "G",
+    "modal": true
+  },
+  "console_exceptions": []
+}
